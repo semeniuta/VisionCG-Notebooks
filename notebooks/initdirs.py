@@ -1,9 +1,10 @@
 import sys
 import os
 
-CODE_DIR = os.environ['PHD_CODE']
-ROOT_DIR = os.path.abspath('..')
-DATA_DIR = os.path.join(ROOT_DIR, 'data')
+CODE_DIR = os.environ['CODEROOT']
+DATA_DIR = '../data'
 
-sys.path.append(os.path.join(CODE_DIR, 'EPypes'))
-sys.path.append(ROOT_DIR)
+for module_dir in ('VisionCG', 'EPypes'):
+    m_path = os.path.join(CODE_DIR, module_dir)
+    if m_path not in sys.path:
+        sys.path.append(m_path)
